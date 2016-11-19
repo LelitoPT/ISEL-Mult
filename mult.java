@@ -7,11 +7,17 @@ public class Mult {
 
     System.out.print("M ? ");
     String m1 = in.nextLine();
-    int int_m1 = Integer.parseInt(m1);
-
+    //int int_m1 = Integer.parseInt(m1);
+    int [] int_m1 = new int[m1.length() + 1];
+    for (int i = 0; i < m1.length() ; i++) {
+      int tgt = (int)m1.charAt(i) - '0';
+      int_m1[i+1] = tgt;
+      int_m1[0] += (tgt * Math.pow(10,(m1.length() - 1 - i)));
+      System.out.println(Arrays.toString(int_m1));
+    }
     System.out.print("m ? ");
     String m2 = in.nextLine();
-    int int_m2 = Integer.parseInt(m2);
+    //int int_m2 = Integer.parseInt(m2);
 
     int m2_len = m2.length();
 
@@ -32,7 +38,7 @@ public class Mult {
 // calculos auxiliares para array
     int a = 0;
     do {
-      tmp_cal[a] = int_m1 * m2_ints[a];
+      tmp_cal[a] = int_m1[0] * m2_ints[a];
       a++;
     } while (a < m2_len);
     //System.out.println(Arrays.toString(tmp_cal));
